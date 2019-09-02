@@ -1,10 +1,10 @@
 type User {
-    id: ID!
-    name: String!
-    email:String!
-}
+  id: ID!
+  name: String!
+  email: String!
+}  
 
 type Query {
-    user(id: ID! @eq): User @first
-    users: [User!]! @all
-}
+  user(id: ID! @eq): User @first
+  users: [User!]! @paginate
+} 
