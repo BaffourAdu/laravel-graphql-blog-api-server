@@ -17,5 +17,5 @@ type Query {
   users: [User!]! @paginate
 
   article(id: ID! @eq): Article @first
-  articles: [Article!]! @all
+  articles: [Article!]! @paginate
 } 
