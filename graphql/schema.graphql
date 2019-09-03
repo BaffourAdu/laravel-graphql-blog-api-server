@@ -2,9 +2,18 @@ type User {
   id: ID!
   name: String!
   email: String!
-}  
+}
+
+type Article {
+  id: ID!
+  title: String!
+  content: String!  
+} 
 
 type Query {
   user(id: ID! @eq): User @first
   users: [User!]! @paginate
+
+  article(id: ID! @eq): Article @first
+  articles: [Article!]! @all
 } 
