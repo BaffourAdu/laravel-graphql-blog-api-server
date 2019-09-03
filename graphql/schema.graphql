@@ -2,12 +2,14 @@ type User {
   id: ID!
   name: String!
   email: String!
+  articles: [Article!]! @hasMany
 }
 
 type Article {
   id: ID!
   title: String!
-  content: String!  
+  content: String! 
+  user: User! @belongsTo 
 } 
 
 type Query {
