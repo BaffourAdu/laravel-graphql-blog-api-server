@@ -22,3 +22,99 @@ Follow the series here => https://baffouraduboampong.me/how-to-build-a-graphql-s
 **GraphQL Endpoint:** http://localhost:8000/graphql
 
 **GraphQL Playground:** http://localhost:8000/graphql-playground  
+
+
+## Example Queries
+
+```javascript
+query {
+  users(first:10, page:6) {
+    paginatorInfo {
+      total
+      currentPage
+      hasMorePages
+      lastPage
+      perPage
+    }
+    data {
+      id
+      name
+      email
+    }
+  }
+  user(id:10){
+    id
+    email
+    name
+    articles {
+      id
+      title
+      content
+    }
+  }
+  article(id: 6) {
+    id
+    title
+    content
+    user {
+      id
+      name
+      email
+    }
+  }
+  articles(first:10, page:1) {
+    paginatorInfo {
+      total
+      currentPage
+      hasMorePages
+      lastPage
+      perPage
+    }
+    data {
+      id
+    	title
+    	content
+    } 
+  }
+}
+```
+
+**Note:** In the query below you need to add request headers such as 
+```json
+{
+  "Authorization": "Bearer CKDL3XFeulMBEdXDtqNG1uEs69tBvCoPSkQZhfJSVKAE0AhHt5bkxKmLGtA8"
+}
+``` 
+
+``` query
+query {
+  me {
+    email
+    name
+    articles {
+      id
+      title
+    }
+  }
+}
+```
+
+## Example Mutations
+```javascript
+mutation {
+    createUser(
+        name:"Alexis Osei"
+        email:"alexis.osei@example.com"
+        password: "secret"
+    ) {
+        id
+        name
+        email
+    }
+
+    login(
+        email:"me@mygraphqlapp.com" 
+        password:"secret"
+    )
+}
+```
