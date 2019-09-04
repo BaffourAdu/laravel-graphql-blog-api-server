@@ -4,7 +4,7 @@ This is the repository for the tutorial on How to build a GraphQL Server using L
 Follow the series here => https://baffouraduboampong.me/how-to-build-a-graphql-server-using-laravel-part-1/
 
 ## Installation
-NB: Make sure you have composer installed or you may downlaod composer at => https://getcomposer.org/download/
+**Note:** Make sure you have composer installed or you may downlaod composer at => https://getcomposer.org/download/
 
 1. git clone
 2. Open the console and cd into your project root directory
@@ -17,7 +17,7 @@ NB: Make sure you have composer installed or you may downlaod composer at => htt
 9. Run php artisan db:seed to run seeders (Incase of an error run => composer dump-autoload)
 10. Run php artisan serve
 
-### You can now access your project at http://localhost:8000
+**Project Url:** http://localhost:8000
 
 **GraphQL Endpoint:** http://localhost:8000/graphql
 
