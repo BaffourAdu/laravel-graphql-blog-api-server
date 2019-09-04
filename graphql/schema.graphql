@@ -26,4 +26,9 @@ type Mutation {
     email: String! @rules(apply: ["required", "email", "unique:users"])
     password: String! @rules(apply: ["required", "min:6"]) @bcrypt
   ): User @create
+
+  login(
+    email: String! @rules(apply: ["required", "email"])
+    password: String! @rules(apply: ["required", "min:6"])
+  ): String @field(resolver: "App\\GraphQL\\Mutations\\AuthMutator") 
 }
