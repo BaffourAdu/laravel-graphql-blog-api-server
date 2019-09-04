@@ -19,3 +19,11 @@ type Query {
   article(id: ID! @eq): Article @first
   articles: [Article!]! @paginate
 } 
+
+type Mutation {
+  createUser(
+    name: String! @rules(apply: ["required"])
+    email: String! @rules(apply: ["required", "email", "unique:users"])
+    password: String! @rules(apply: ["required", "min:6"]) @bcrypt
+  ): User @create
+}
