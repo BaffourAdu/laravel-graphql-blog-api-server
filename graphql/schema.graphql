@@ -33,4 +33,9 @@ type Mutation {
     email: String! @rules(apply: ["required", "email"])
     password: String! @rules(apply: ["required", "min:6"])
   ): String @field(resolver: "App\\GraphQL\\Mutations\\AuthMutator") 
+
+  createArticle(
+    title: String! @rules(apply: ["required"])
+    content: String! @rules(apply: ["required"])
+  ): Article @field(resolver: "App\\GraphQL\\Mutations\\ArticleMutator") @middleware(checks: ["auth:api"])
 }
